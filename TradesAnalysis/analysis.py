@@ -1,33 +1,30 @@
 import pandas as pd
-from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.stattools import adfuller, kpss
 
-# Your sample trades data (a subset of your full dataset)
-data = {
-    'timestamp': [
-        '2023-10-13 10:00:00', '2023-10-13 10:00:00', '2023-10-13 10:00:00',
-        '2023-10-13 10:00:00', '2023-10-13 10:00:00', '2023-10-13 10:00:00',
-        '2023-10-13 10:00:00', '2023-10-13 10:00:00', '2023-10-13 10:00:00',
-        '2023-10-13 10:00:00', '2023-10-13 10:00:00'
-    ],
-    'side': ['sell', 'sell', 'sell', 'sell', 'sell', 'sell', 'sell', 'sell', 'sell', 'sell', 'sell'],
-    'size': [0.40906938, 0.15618927, 0.16, 0.1469042, 0.13820735, 0.16755721,
-             0.14950466, 0.15138358, 0.14861642, 0.1292959, 0.14088824],
-    'price': [26854.8, 26847.5, 26847.5, 26847.6, 26847.6, 26847.9,
-              26847.3, 26847.3, 26847.3, 26847.3, 26847.2]
-}
 
-# Create a DataFrame from the sample data
-df = pd.DataFrame(data)
+file_path = 'TradesAnalysis/tradeData.csv'  
 
-# Convert 'timestamp' column to datetime type
+df = pd.read_csv(file_path)
+print(df)
+
 df['timestamp'] = pd.to_datetime(df['timestamp'])
+df['side'] = df['side'].map({'sell': -1, 'buy': 1})
 
-# Perform the ADF test on the 'size' column
-result = adfuller(df['size'])
+df['order_size'] = df['size'] * df['side']
 
-# Extract and print the test results
+result = adfuller(df['order_size'])
+
 print('ADF Statistic:', result[0])
 print('p-value:', result[1])
 print('Critical Values:')
 for key, value in result[4].items():
     print(f'\t{key}: {value}')
+
+kpss_stat, p_value, lags, critical_values = kpss(df['order_size'])
+
+print(f'KPSS Statistic: {kpss_stat}')
+print(f'p-value: {p_value}')
+print('Critical Values:')
+for key, value in critical_values.items():
+    print(f'   {key}: {value}')
+

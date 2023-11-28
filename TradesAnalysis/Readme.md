@@ -4,4 +4,18 @@ The objective of this study is to conduct a comprehensive time series analysis o
 This part is reasonably straightforward. The API calls necessary have already been used in the TradingEngine/testAPI.py file. Trades executed and orderbook data will be saved into 2 separate CSV files. I aim to use ADF and KPSS tests to test for unit roots and stationarity and use the Hurst exponent to test for mean reversion, and will format data to work with the respective libraries used for the stastical tests. 
 
 #Applying tests and evaluating results
+ADF Statistic: -15.257166964046844
+p-value: 4.917351695256358e-28
+Critical Values:
+        1%: -3.4575505077947746
+        5%: -2.8735087323013526
+        10%: -2.573148434859185
+KPSS Statistic: 0.09600826493207723
+p-value: 0.1
+Critical Values:
+   10%: 0.347
+   5%: 0.463
+   2.5%: 0.574
+   1%: 0.739
 
+These tests were run with a small dataset that was collected over the length of 1h. More data should help make more definite conclusions. These results suggest that the time series may be stationary. 
