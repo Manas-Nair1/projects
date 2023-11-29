@@ -14,6 +14,7 @@ df['side'] = df['side'].map({'sell': -1, 'buy': 1})
 df['order_size'] = df['size'] * df['side']
 
 data = pd.Series(df['order_size'])
+
 '''
 # Plot ACF and PACF to identify ARMA orders
 plot_acf(data)
@@ -29,8 +30,8 @@ p = 4  # Replace with your selected autoregressive (AR) order
 q = 4 # Replace with your selected moving average (MA) order
 
 # Split data into training and testing sets
-train_data = data.iloc[:6]  # Replace with your training data
-test_data = data.iloc[6:]   # Replace with your testing data
+train_data = data.iloc[:200]  # Replace with your training data
+test_data = data.iloc[200:]   # Replace with your testing data
 
 # Fit ARMA model to training data
 model = ARIMA(train_data, order=(p, 0, q))  # Use '0' for integrated term in ARIMA for ARMA
@@ -40,7 +41,8 @@ arma_model = model.fit()
 residuals = arma_model.resid
 plt.plot(residuals)
 plt.title('Residuals Plot')
-plt.show()
+plt.savefig('residuals.png')
+
 
 # Forecast using the fitted model
 forecast = arma_model.forecast(steps=len(test_data))
@@ -51,3 +53,17 @@ true_values = test_data.to_numpy()
 forecast_values = forecast.to_numpy()
 rmse = ((true_values - forecast_values) ** 2).mean() ** 0.5
 print(f'RMSE: {rmse}')
+
+plt.plot(test_data.index, test_data.values, label='Actual', color='blue')
+
+# Plot forecasted values
+plt.plot(test_data.index, forecast, label='Forecast', color='red')
+
+plt.title('Actual vs Forecasted Values')
+plt.xlabel('Time')
+plt.ylabel('Order Size')
+plt.legend()
+plt.grid(True)
+plt.savefig('ForecastVsActual.png')
+plt.show()
+
