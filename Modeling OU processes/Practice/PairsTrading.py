@@ -1,16 +1,18 @@
 import ccxt
 import pandas as pd
 import matplotlib.pyplot as plt
+import statsmodels.api as sm
+import statsmodels.tsa.stattools as ts
 
 exchange = ccxt.kucoin()
 
 symbols = ['BTC/USDT', 'ETH/USDT']
-start_date = exchange.parse8601('2022-01-01T00:00:00Z')  # Start date: January 1st, 2022
-end_date = exchange.parse8601('2023-01-01T00:00:00Z')    # End date: January 1st, 2023
+start_date = exchange.parse8601('2018-01-01T00:00:00Z')  # Start date: January 1st, 2018
+end_date = exchange.parse8601('2023-10-01T00:00:00Z')    # End date: January 1st, 2023
 
 dfs = {}
 for symbol in symbols:
-    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='1d', since=start_date, limit=1000)
+    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='1d', since=start_date)
     filtered_data = [data for data in ohlcv if start_date <= data[0] < end_date]
 
     df = pd.DataFrame(filtered_data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
@@ -21,28 +23,19 @@ for symbol in symbols:
 
 btc_data = dfs['BTC/USDT']
 eth_data = dfs['ETH/USDT']
-print(btc_data)
+
+btc_close = btc_data['close'].rename('BTC_Close')  # Extract 'close' column for BTC and rename it
+eth_close = eth_data['close'].rename('ETH_Close')  # Extract 'close' column for ETH and rename it
+
+df = pd.concat([btc_close, eth_close], axis=1)  # Concatenate both 'close' columns into a single DataFrame
+
+print(df)
 
 def create_residuals(price_df):
-    """
-    Calculate the OLS and create the beta hedge ratio and residuals for the two 
-    equites XOM and USO.
-
-    Parameters
-    ----------
-    price_df : `pd.DataFrame`
-        A DataFrame containing XOM and USO Adjusted Close data from
-        01/01/2019-01/01/2020. Index is a Datetime object.
-
-    Returns
-    -------
-    price_df : `pd.DataFrame`
-        Updated DataFrame with column values for beta hedge ratio (beta_hr) and 
-        residuals (Residuals).
-    """
+   
     # Create OLS model
-    Y = price_df['USO Price($)']
-    x = price_df['XOM Price($)']
+    Y = price_df['BTC_Close']
+    x = price_df['ETH_Close']
     x = sm.add_constant(x)
     model = sm.OLS(Y, x)
     res = model.fit()
@@ -54,3 +47,7 @@ def create_residuals(price_df):
     # Residuals
     price_df["Residuals"] = res.resid
     return price_df
+
+print(create_residuals(df))
+cadf = ts.adfuller(df["Residuals"])
+print(f'CADF:{cadf}')
