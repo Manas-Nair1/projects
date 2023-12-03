@@ -31,6 +31,7 @@ plt.ylabel('Price (USDT)')
 plt.title('BTC/USDT and ETH/USDT OHLCV')
 plt.legend()
 plt.grid(True)
+plt.show()
 
 relative_difference = eth_data['close'] / btc_data['close']
 plt.figure(figsize=(10, 4))
