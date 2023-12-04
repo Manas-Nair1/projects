@@ -45,7 +45,7 @@ plt.show()
 #plotting the ratios between the 2 assets
 relative_difference = eth_data['close'] / btc_data['close']
 print(relative_difference)
-relative_difference.to_csv('residualRatio.csv',index=False)
+relative_difference.to_csv('residualRatio.csv',index=True)
 pass
 plt.figure(figsize=(10, 4))
 plt.plot(relative_difference.index, relative_difference, label='Relative Difference', color='green')

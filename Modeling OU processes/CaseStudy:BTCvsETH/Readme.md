@@ -12,4 +12,4 @@ Running the analysis over 1-1-2018 -> 10-1-2023 outputs:
 CADF:(-2.755845582962943, 0.0648629501207425, 24, 1475, {'1%': -3.434791163965702, '5%': -2.8635014840083945, '10%': -2.5678142741740877}, 23667.734903608045)
 
 # Trading strategy:
-We will model the residuals as an Ornstein-Uhnlenbeck process as we expect the residuals to display mean reverting properties. Although the CADF test does not suggest a particularly strong cointegration relationship, as the p-value is > 0.05 and the CADF result is also > the 5% critical value, we will backtest a trading strategy that takes opposite positions in these 2 assets if their residuals diverge from the modelled mean.
+We will model the ratios as an Ornstein-Uhnlenbeck process as we expect the ratios to display mean reverting properties. Although the CADF test does not suggest a particularly strong cointegration relationship, as the p-value is > 0.05 and the CADF result is also > the 5% critical value, we will backtest a trading strategy that takes opposite positions in these 2 assets if their ratios diverge from the modelled mean.

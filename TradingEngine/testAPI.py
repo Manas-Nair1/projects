@@ -2,8 +2,8 @@
 
 Goal is to test API calls and test how long they take. 
 Will calculate various indicators to experiment with API responses but these have nothing to do
-with the actual strategy
-the strategy was heavily inspired by article at:
+with any live strategy. Strategies that will be backtested can be found under the backtesting folder
+this strategy was heavily inspired by an article at:
 https://www.quantifiedstrategies.com/relative-strength-index-and-moving-average-trading-strategy/
 
 """
@@ -128,17 +128,17 @@ def execute_short():
 
 #-----------------------------------------------------------
 
-
+"""
+the state of run should be set to false by another script if the script opens too many positions,
+or if the bot is trying to close positions prematurely due to a reversal in signal
+"""
 while run == True:
     now = datetime.now()
     position = 0
 
     ohlcv_data = fetch_ohlcv_data(symbol, timeframe)
-    
     ohlcv_data = calculate_obv_past_day(ohlcv_data)
-    
     ohlcv_data = calculate_rsi(ohlcv_data)
-    
     ohlcv_data = calculate_sma(ohlcv_data, window=sma_window)
     
     obv_value = ohlcv_data.iloc[-1]['obv']
