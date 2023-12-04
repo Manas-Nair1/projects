@@ -18,12 +18,12 @@ Critical Values:
    2.5%: 0.574
    1%: 0.739
 
-These tests were run with a small dataset that was collected over the length of 1h. More data should help make more definite conclusions. These results suggest that the time series may be stationary. 
+These tests were run over a relatively small dataset. More data should help make more definite conclusions. These results suggest that the time series may be stationary. 
 # arma model
-ARMA.py aims to build a predictive model. The results are plotted under ForcastVsActual.png. The main problem that arises is the high variance of the dataset. Although it may show stationary behaviour, the high variance leads to any single predicted value being wrong with a high likelyhood. A better application maybe to calculate the summary statistics for the given dataset and then try and use that to build a probility density function. 
+ARMA.py builds a predictive model. The results are plotted under ForcastVsActual.png. The main problem is due to the high variance of the dataset. Although it may show stationary behaviour, the high variance makes it very difficult to predict an exact value for the Trades(n+1). A better application maybe to calculate the summary statistics for the given dataset and then try and use that to build a probility density function that can use the range of possible values to build a model. 
 
 # Trades vs Orderbook
-This script aims to use the fact that the r.v. denoting trades(T<sub>n</sub>) executed displays stationary behaviour. It generates a normal distribution model to predict probability of the next value of T<sub>n</sub>. It looks at the state of the orderbook, stores the values of the highest bid and lowest ask and calculates the probability of the next value of T<sub>n</sub> being large enough in either direction to engulf either of these limit orders. The orderbook's limit orders could also be modeled as its own r.v. For the sake of this model, **I assume no hidden orders, order spoofing, or skewed distributions of this r.v.** It is most likely not entirely stochastic and could be modeled on its own.
+This script aims to use the fact that the r.v. denoting trades executed for the n'th time period (T<sub>n</sub>) displays stationary behaviour. It generates a normal distribution model to predict probability of the next value of T<sub>n+1</sub> being greater or smaller than the amount needed to affect the orderbook substantially. It looks at the state of the orderbook, stores the values of the highest bid and lowest ask and calculates the probability of the next value of T<sub>n</sub> being large enough in either direction to engulf either of these limit orders. The orderbook's limit orders could also be modeled as its own r.v. For the sake of this model, **I assume no hidden orders, order spoofing, or skewed distributions of this r.v.** It is most likely not entirely stochastic and could be modeled on its own.
 
 # Improvements
 Time needed for exectuion needs to be improved. It takes ~25 seconds per calculation and the HFT nature of the strategy makes this way too long to ever be profitable. Majority of the slowdown is due to the API calls

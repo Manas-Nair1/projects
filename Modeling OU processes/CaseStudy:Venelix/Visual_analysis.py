@@ -15,7 +15,7 @@ def get_stock_data(stocks, start_date, end_date):
 # Define the stocks and time range
 stocks = ['MRK', 'BMY']  # Example stocks (Apple and Microsoft)
 start_date = '2017-01-01'  # Start date
-end_date = '2020-01-01'    # End date
+end_date = '2018-01-01'    # End date
 
 # Get the stock data
 stock_data = get_stock_data(stocks, start_date, end_date)

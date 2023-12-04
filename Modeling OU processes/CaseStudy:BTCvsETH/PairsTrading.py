@@ -12,7 +12,7 @@ end_date = exchange.parse8601('2023-10-01T00:00:00Z')    # End date: January 1st
 
 dfs = {}
 for symbol in symbols:
-    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='1d', since=start_date)
+    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='8h', since=start_date)
     filtered_data = [data for data in ohlcv if start_date <= data[0] < end_date]
 
     df = pd.DataFrame(filtered_data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
@@ -34,10 +34,10 @@ print(df)
 def create_residuals(price_df):
    
     # Create OLS model
-    Y = price_df['BTC_Close']
+    y = price_df['BTC_Close']
     x = price_df['ETH_Close']
     x = sm.add_constant(x)
-    model = sm.OLS(Y, x)
+    model = sm.OLS(y, x)
     res = model.fit()
     
     # Beta hedge ratio (coefficent from OLS)
