@@ -23,8 +23,8 @@ Will include:
 Key mathemetical methods used:
 - Solving Stochastic partial differential equations. 
     * Deriving Black-Sholes-Merton PDE using Ito Calc and applying no-arbitrage pricing
-    * Solving the OU and Vasicek model as necessary
-    * Finite difference method/ Monte-Carlo Simulation usage when analytical solutions are not possible
+    * Solving the OU and Vasicek model to model mean reverting processes
+    * Finite difference method/ Monte-Carlo Simulations usage when analytical solutions are not possible
 - Statistical testing 
     * Testing for Cointegration 
     * Using ADF and KPSS tests as well as Hurst exponents to identify appropriate methods of modeling

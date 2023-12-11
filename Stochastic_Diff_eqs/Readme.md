@@ -1,2 +1,4 @@
 # Stochastic Differential equations
 Here we will investigate different methods of solving stochastic differential equations that appear in other projects, as well as important concepts to understand such as the deriviation of the Black-Sholes-Merton option pricing model. The mathematical work will be brief, skipping rudamentary calculations where appropriate, and will assume some knowledge of Ito's Lemma, construction of Brownian motion, and methods of solving ODE's and PDE's such as finite difference method, which will be adapted to work with stochastic models.  
+- A deriviation of the Black-Sholes PDE is included as an example of a process where a analytical method works
+- Finite Difference method is used 
