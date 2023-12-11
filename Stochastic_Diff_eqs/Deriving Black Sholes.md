@@ -12,7 +12,7 @@ Applying Ito's Lemma we knok
 Substitute dS as the known differential  
 ![Eqn](https://github.com/Manas-Nair1/projects/assets/138029880/909a4692-f88d-4cbb-91a7-9d97d24b69c5)  
 We now take this equation for dV and substitute into the original formula for dP, and group the respective dt and ds terms  
-![Eqn](https://github.com/Manas-Nair1/projects/assets/138029880/3d64d8f7-2198-46f1-9bef-420afec99ec7)
+![Eqn](https://github.com/Manas-Nair1/projects/assets/138029880/3d64d8f7-2198-46f1-9bef-420afec99ec7)  
 Here we get the delta value for the hedge, which is a change in Value per unit change in the underlying  
 ![Eqn](https://github.com/Manas-Nair1/projects/assets/138029880/1d98f3c8-342b-4cb3-b854-f696c40cf9ae)  
 Setting delta equal to this makes the ds term = 0, and we get the dynamics that are entirely deterministic and thus risk free. We know that this must mean there is some risk free rate r for which the dynamics of the portfolio are  
