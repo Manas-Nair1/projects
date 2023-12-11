@@ -13,3 +13,4 @@ We will first look for visual confirmation regarding a linear relationship betwe
 
 # Results
 The scatter plot shows a linear relationship for about the first half of the data but diverges into 2 clusters. We should not apply a linear regression as we would be introducing look ahead bias when deciding where to truncate the data. 
+The biotech industry may not be the best fit for this strategy as it's constituent stocks may be less correlated to the industry and better modeled using charecteristics of the company itself(such as financials, drug portfolio, and upcoming catalyst dates).
