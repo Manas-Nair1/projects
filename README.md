@@ -1,9 +1,9 @@
 # Select projects
 #WIP means project is still under active development
 This repository highlights select projects that develop skillsets in the quantitative trading industry. 
-Will include:
-- Value investing principles:
-    * Applying principles of value investing to find good long term investments. Contrasts other projects that focus on short term statistical arbitrage opportunities. 
+Key projects included:
+- (WIP)Value investing principles:
+    * Applying principles of value investing to find good long term investments with high upside. 
 - Trading engine: connects to exchanges and executes trades systematically
     * Goal is to be familiar with the API calls to get data and place trades with varying parameters.
     * Query OHCLV data to be used in custom backtesting framework
@@ -12,7 +12,7 @@ Will include:
     * Using "pairs trading" to build a portfolio with stationary properties from assets that individually follow GBM
 - Ornstein-Uhlenbeck process to model mean reverting stochastic processes
     * Modeling residuals between cointegrated pairs of assets as mean reverting and using continous and discritized versions of the OU process to model dynamics. 
-- Data driven investment thesis using mix of analysis algorithms on BioTech/Pharmaceutical stocks (Focus on NLP)
+- (WIP)Data driven investment thesis using mix of analysis algorithms on BioTech/Pharmaceutical stocks (Focuses on NLP)
     * Sentiment analysis using BERT models on News 
     * Analysing 10-K's and 10-Q's
     * (From value investing) Using comps trading strategies comparing EV/EBITDA multiple to identify undervalued/overvalued companies. 
@@ -20,11 +20,13 @@ Will include:
     * Using Backtrader library to setup data feeds, generate signals, and evaluate strategies.
     * Developing a custom backtesting framework to deal with limitations of open-source libraries. 
 
-Key mathemetical methods used:
+Key mathematical methods used:
 - Solving Stochastic partial differential equations. 
     * Deriving Black-Sholes-Merton PDE using Ito Calc and applying no-arbitrage pricing
-    * Solving the OU and Vasicek model to model mean reverting processes
+    * Solving the OU and Vasicek SDE model to model mean reverting processes
     * Finite difference method/ Monte-Carlo Simulations usage when analytical solutions are not possible
 - Statistical testing 
     * Testing for Cointegration 
     * Using ADF and KPSS tests as well as Hurst exponents to identify appropriate methods of modeling
+- Regression analysis
+    * Using MLE to estimate parameters for the discretized OU processes
