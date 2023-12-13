@@ -1,5 +1,5 @@
 # Select projects
-#WIP means project is still under active development
+#WIP : project is still under active development
 This repository highlights select projects that develop skillsets in the quantitative trading industry. 
 Key projects included:
 - (WIP)Value investing principles:
