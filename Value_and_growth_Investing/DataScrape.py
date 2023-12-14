@@ -1,6 +1,8 @@
 """
 Fetches and calculates EV/EBITDA to compare against a threshold which is found from the 'industry average.'
 """
+import pandas as pd
+
 def extract_symbols_from_file(file_path):
     symbols = []
     with open(file_path, 'r') as file:
@@ -58,18 +60,22 @@ def get_ev_ebitda_ratio(stock_ticker):
             
             return ev_ebitda_ratio
         else:
-            return "EV/EBITDA information not available for this stock."
+            return "Information not available"
 
     except Exception as e:
         return f"Error fetching data for {stock_ticker}: {e}"
 
-industry_average = {}
-"""
-for ticker in extracted_symbols[:10]:
-    print("\n" + ticker)
-    industry = get_industry(ticker)
-    print(industry)
-    ratio = get_ev_ebitda_ratio(ticker)
-    print(ratio)
-"""
- 
+ticker_ratios = []
+for ticker in extracted_symbols:
+    try:
+        print("\n" + ticker)
+        industry = get_industry(ticker)
+        print(industry)
+        ratio = get_ev_ebitda_ratio(ticker)
+        print(ratio)
+        ticker_ratios.append([ticker,industry, ratio])
+    except:
+        pass
+df = pd.DataFrame(ticker_ratios, columns=['Ticker', 'Industry', 'Ratio'])
+df.to_csv('NasdaqRatios.csv')
+print(df)

@@ -20,7 +20,7 @@ Critical Values:
 
 These tests were run over a relatively small dataset. More data should help make more definite conclusions. These results suggest that the time series may be stationary. 
 # arma model
-ARMA.py builds a predictive model. A model such as this is not the best fit as any predicted values will have a high level of uncertainity due to the nature of the r.v. in question. The results are plotted under ForcastVsActual.png. Although the r.v. may show stationary behaviour, the high variance makes it very difficult to predict an single value for the next value in a time series. 
+ARMA.py builds a predictive model to practice building a model such as this given a dataset. This model is expected to perform poorly due to the nature of the variable it aims to predict, which follows GBM. The results are plotted under ForcastVsActual.png. Although the r.v. may show stationary behaviour, the high variance makes it very difficult to predict an single value for the next value in a time series. 
 A better method maybe to calculate the summary statistics for the given dataset and then use that to build a probility density function that can use the range of possible values to build a model. 
 
 # Trades vs Orderbook

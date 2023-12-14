@@ -2,8 +2,9 @@
 #WIP : project is still under active development
 
 Key projects included:
-- (WIP)Value investing principles:
-    * Applying principles of value investing to find good long term investments with high upside. 
+- Value investing principles:
+    * Applying principles of value investing to identify "undervalued" or "overvalued" companies. 
+    * These list of companies should then be investigated to find out what causes them to trade above(or below) companies in the same sector. 
 - Trading engine: connects to exchanges and executes trades systematically
     * Use API calls to get data and place trades with varying parameters.
     * Query OHCLV data to be used in custom backtesting framework
@@ -13,9 +14,8 @@ Key projects included:
 - Ornstein-Uhlenbeck process to model mean reverting stochastic processes
     * Modeling residuals between cointegrated pairs of assets as mean reverting and using continous and discritized versions of the OU process to model dynamics. 
 - (WIP)Data driven investment thesis using mix of analysis algorithms on BioTech/Pharmaceutical stocks (Focuses on NLP)
-    * Sentiment analysis using BERT models on News 
+    * Sentiment analysis using BERT models on News/ Announcements 
     * Analyzing 10-K's and 10-Q's
-    * (From value investing) Using comps trading strategies comparing EV/EBITDA multiple to identify undervalued/overvalued companies. 
 - Backtesting a systematic trading strategy to evaluate risk and efficacy
     * Using Backtrader library to setup data feeds, generate signals, and evaluate strategies.
     * Developing a custom backtesting framework to deal with limitations of open-source libraries. 
