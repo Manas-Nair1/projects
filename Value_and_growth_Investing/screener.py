@@ -72,3 +72,4 @@ for ticker in extracted_symbols[:10]:
     ratio = get_ev_ebitda_ratio(ticker)
     print(ratio)
 """
+ 
