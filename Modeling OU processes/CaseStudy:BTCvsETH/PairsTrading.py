@@ -16,7 +16,7 @@ for symbol in symbols:
     filtered_data = [data for data in ohlcv if start_date <= data[0] < end_date]
 
     df = pd.DataFrame(filtered_data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
-    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')  # Convert timestamp to datetime
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')  
     df.set_index('timestamp', inplace=True)
     dfs[symbol] = df
 
@@ -24,10 +24,10 @@ for symbol in symbols:
 btc_data = dfs['BTC/USDT']
 eth_data = dfs['ETH/USDT']
 
-btc_close = btc_data['close'].rename('BTC_Close')  # Extract 'close' column for BTC and rename it
-eth_close = eth_data['close'].rename('ETH_Close')  # Extract 'close' column for ETH and rename it
+btc_close = btc_data['close'].rename('BTC_Close') 
+eth_close = eth_data['close'].rename('ETH_Close')  
 
-df = pd.concat([btc_close, eth_close], axis=1)  # Concatenate both 'close' columns into a single DataFrame
+df = pd.concat([btc_close, eth_close], axis=1)  
 
 print(df)
 

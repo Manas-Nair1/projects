@@ -26,14 +26,12 @@ plt.savefig('pacf.png')
 pass
 '''
 # Choose orders (p, q) based on ACF and PACF plots
-p = 4  # Replace with your selected autoregressive (AR) order
-q = 4 # Replace with your selected moving average (MA) order
+p = 4  
+q = 4 
 
-# Split data into training and testing sets
-train_data = data.iloc[:200]  # Replace with your training data
-test_data = data.iloc[200:]   # Replace with your testing data
+train_data = data.iloc[:200]  
+test_data = data.iloc[200:]   
 
-# Fit ARMA model to training data
 model = ARIMA(train_data, order=(p, 0, q))  # Use '0' for integrated term in ARIMA for ARMA
 arma_model = model.fit()
 
@@ -47,8 +45,6 @@ plt.savefig('residuals.png')
 # Forecast using the fitted model
 forecast = arma_model.forecast(steps=len(test_data))
 
-# Evaluate forecasting performance (e.g., RMSE)
-# Replace 'true_values' with your actual true values from the test set
 true_values = test_data.to_numpy()
 forecast_values = forecast.to_numpy()
 rmse = ((true_values - forecast_values) ** 2).mean() ** 0.5

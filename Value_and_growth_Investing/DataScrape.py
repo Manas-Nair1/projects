@@ -27,7 +27,6 @@ file_path = 'Value_and_growth_Investing/nasdaqlisted.txt'  # Change this to your
 extracted_symbols = extract_symbols_from_file(file_path)
 
 # Print the extracted symbols
-print("Extracted Symbols:")
 print(extracted_symbols)
 print(len(extracted_symbols))
 

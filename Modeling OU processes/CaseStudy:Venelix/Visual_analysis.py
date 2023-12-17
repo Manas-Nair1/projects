@@ -12,14 +12,12 @@ def get_stock_data(stocks, start_date, end_date):
         data[stock] = yf.download(stock, start=start_date, end=end_date)['Close']
     return pd.DataFrame(data)
 
-# Define the stocks and time range
-stocks = ['MRK', 'BMY']  # Example stocks (Apple and Microsoft)
+stocks = ['MRK', 'BMY']  
 start_date = '2017-01-01'  # Start date
 end_date = '2018-01-01'    # End date
 
-# Get the stock data
 stock_data = get_stock_data(stocks, start_date, end_date)
-print(stock_data.tail())  # Display the first few rows of the DataFrame
+print(stock_data.tail())  
 
 def plot_price_series(price_df):
     """
@@ -61,7 +59,3 @@ def plot_scatter_series(price_df):
 
 plot_scatter_series(stock_data)
 
-# Assuming your DataFrame is named 'df'
-# for index, row in stock_data.iterrows():
-#     if row['RHHBY'] < 35 and row['ABBV'] > 85:
-#         print(f"Date: {index} - ABBV: {row['ABBV']}, RHHBY: {row['RHHBY']}")
