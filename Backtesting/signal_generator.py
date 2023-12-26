@@ -14,7 +14,7 @@ df["signal"] = zscore_20_5
 print(zscore_20_5)
 print(df)
 df.to_csv("signals.csv")
-pass
+
 data = pd.Series(zscore_20_5)
 
 plt.figure(figsize=(10, 6))
