@@ -12,8 +12,8 @@ end_date = exchange.parse8601('2023-10-01T00:00:00Z')    # End date: January 1st
 
 dfs = {}
 for symbol in symbols:
-    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='8h', since=start_date)
-    filtered_data = [data for data in ohlcv if start_date <= data[0] < end_date]
+    ohlcv = exchange.fetch_ohlcv(symbol, timeframe='1h', limit=1500) #1500 is max for 1 call
+    filtered_data = [data for data in ohlcv]
 
     df = pd.DataFrame(filtered_data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')  
