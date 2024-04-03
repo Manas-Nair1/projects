@@ -1,4 +1,4 @@
-## Under active development
+## Hackathon project: Biotech Stocks
 
 # Alternative data
 Use various sources of fundemental and alternative data to understand the state of a company and predict future changes.
