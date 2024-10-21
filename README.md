@@ -4,7 +4,7 @@
 Key projects included:
 
 - Statistical testing and time series analysis
-    * Applying statistical testing to trades executed data as provided by kucoin exchange.
+    * Applying statistical testing to trades executed data as provided by kucoin's crypto Futures exchange.
     * Using "pairs trading" to build a portfolio with stationary properties from assets that individually follow GBM
 - Trading engine: connects to exchanges and executes trades systematically
     * Use API calls to get data and place trades with varying parameters.
