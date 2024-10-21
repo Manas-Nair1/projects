@@ -2,7 +2,10 @@
 #WIP : project is still under active development
 
 Key projects included:
-
+- Adapting GPT2 architecture for time series forecasting
+    * currently live trading so code is not open source; is available upon request
+- Vectorized backtester operating on tick data
+    * currently live trading so code is not open source; is available upon request
 - Statistical testing and time series analysis
     * Applying statistical testing to trades executed data as provided by kucoin's crypto Futures exchange.
     * Using "pairs trading" to build a portfolio with stationary properties from assets that individually follow GBM
@@ -11,7 +14,7 @@ Key projects included:
     * Query OHCLV data to be used in custom backtesting framework
 - Ornstein-Uhlenbeck process to model mean reverting stochastic processes
     * Modeling residuals between cointegrated pairs of assets as mean reverting and using continous and discritized versions of the OU process to model dynamics. 
-- (WIP)Data driven investment thesis using mix of analysis algorithms on BioTech/Pharmaceutical stocks (Focuses on NLP)
+- Data driven investment thesis using mix of analysis algorithms on BioTech/Pharmaceutical stocks (Focuses on NLP)
     * Sentiment analysis using BERT models on News/ Announcements 
     * Analyzing 10-K's and 10-Q's
 - Backtesting a systematic trading strategy to evaluate risk and efficacy
