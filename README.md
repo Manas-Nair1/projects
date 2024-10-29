@@ -1,11 +1,17 @@
 # Select projects
 #WIP : project is still under active development
 
+Currently workin on:
+- RandomWalk+momentum
+    * Applies SDE models, readme under directory
+
 Key projects included:
 - Adapting GPT2 architecture for time series forecasting
     * currently live trading so code is not open source; is available upon request
+
 - Vectorized backtester operating on tick data
     * currently live trading so code is not open source; is available upon request
+
 - Statistical testing and time series analysis
     * Applying statistical testing to trades executed data as provided by kucoin's crypto Futures exchange.
     * Using "pairs trading" to build a portfolio with stationary properties from assets that individually follow GBM
