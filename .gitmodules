@@ -1,0 +1,3 @@
+[submodule "LMS-webapp"]
+	path = LMS-webapp
+	url = https://github.com/Manas-Nair1/next13-lms-platform
