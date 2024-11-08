@@ -1,0 +1,1 @@
+contains rs scripts to sign and send restful api requests to the exchange
